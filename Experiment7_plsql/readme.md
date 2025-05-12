@@ -50,6 +50,7 @@ BEGIN
     END IF;
 END;
 ```
+
 **Output:**
 
 ![image](https://github.com/user-attachments/assets/57c0ef02-e61f-4b42-ac6b-5847ee9609bf)
