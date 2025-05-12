@@ -1,4 +1,4 @@
-# Experiment 6: PL/SQL – Variables, Control Structures and Loops
+# Experiment 7: PL/SQL – Variables, Control Structures and Loops
 
 ## AIM
 To write and execute simple PL/SQL programs using variables, loops, and conditional statements.
@@ -86,6 +86,7 @@ END;
 ```
 
 **Output:**
+
 ![image](https://github.com/user-attachments/assets/be551ab6-8e92-4368-bc72-167301ad5bf0)
 
 ## 3. Write a PL/SQL program to generate Fibonacci series
@@ -126,6 +127,7 @@ END;
 ```
 
 **Output:**
+
 ![image](https://github.com/user-attachments/assets/ac0d3a19-6bda-4940-af04-bbbf6f7b26be)
 
 
@@ -162,6 +164,7 @@ END;
 ```
 
 **Output:**
+
 ![image](https://github.com/user-attachments/assets/dfc80450-ae26-4142-a086-a009ab09afc9)
 
 
@@ -200,6 +203,7 @@ END;
 ```
 
 **Output:**
+
 ![image](https://github.com/user-attachments/assets/42a39682-d266-4c89-8304-dffc6220d25d)
 
 ## RESULT
