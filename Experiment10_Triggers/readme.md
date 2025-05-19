@@ -12,6 +12,7 @@ A *trigger* is a stored PL/SQL block that is automatically executed or fired whe
 on a table or view. Triggers can be used for enforcing business rules, auditing changes, or automatic updates.
 
 ### Types of Triggers:
+```
 - *Before Trigger*: Executes before the operation (INSERT, UPDATE, DELETE).
 - *After Trigger*: Executes after the operation.
 - *Row-level Trigger*: Executes for each affected row.
@@ -25,9 +26,10 @@ BEFORE|AFTER INSERT|UPDATE|DELETE ON table_name
 BEGIN
    -- trigger logic
 END;
-
+```
 
 ## 1. Write a trigger to log every insertion into a table.
+```
 *Steps:*
 - Create two tables: employees (for storing data) and employee_log (for logging the inserts).
 - Write an *AFTER INSERT* trigger on the employees table to log the new data into the employee_log table.
@@ -63,7 +65,7 @@ INSERT INTO employees (emp_id, emp_name, salary) VALUES (1, 'Alice', 5000);
 COMMIT;
 
 SELECT * FROM employee_log;
-
+```
 
 
 *Output:*
@@ -76,6 +78,7 @@ SELECT * FROM employee_log;
 ---
 
 ## 2. Write a trigger to prevent deletion of records from a sensitive table.
+```
 *Steps:*
 - Write a *BEFORE DELETE* trigger on the sensitive_data table.
 - Use RAISE_APPLICATION_ERROR to prevent deletion and issue a custom error message.
@@ -99,7 +102,7 @@ INSERT INTO sensitive_data (id, info) VALUES (1, 'Secret Info');
 COMMIT;
 
 DELETE FROM sensitive_data WHERE id = 1;
-
+```
 
 
 *Output:*
@@ -112,6 +115,7 @@ DELETE FROM sensitive_data WHERE id = 1;
 ---
 
 ## 3. Write a trigger to automatically update a last_modified timestamp.
+```
 *Steps:*
 - Add a last_modified column to the products table.
 - Write a *BEFORE UPDATE* trigger on the products table to set the last_modified column to the current
@@ -140,7 +144,7 @@ UPDATE products SET price = 120 WHERE product_id = 1;
 
 SELECT product_id, product_name, price, last_modified FROM products WHERE product_id = 1;
 
-
+```
 
 *Output:*
 
@@ -153,6 +157,7 @@ SELECT product_id, product_name, price, last_modified FROM products WHERE produc
 ---
 
 ## 4. Write a trigger to keep track of the number of updates made to a table.
+```
 *Steps:*
 - Create an audit_log table with a counter column.
 - Write an *AFTER UPDATE* trigger on the customer_orders table to increment the counter in the audit_log
@@ -186,7 +191,7 @@ END;
 INSERT INTO customer_orders VALUES (1, 'Alice', 100);
 UPDATE customer_orders SET order_amount = 150 WHERE order_id = 1;
 SELECT * FROM audit_log WHERE table_name = 'CUSTOMER_ORDERS';
-
+```
 
 
 *Output:*
@@ -199,6 +204,7 @@ SELECT * FROM audit_log WHERE table_name = 'CUSTOMER_ORDERS';
 ---
 
 ## 5. Write a trigger that checks a condition before allowing insertion into a table.
+```
 *Steps:*
 - Write a *BEFORE INSERT* trigger on the employees table to check if the inserted salary meets a
 - specific condition (e.g., salary must be greater than 3000).
@@ -218,13 +224,14 @@ END;
 INSERT INTO employees (emp_id, emp_name, salary) VALUES (101, 'John Doe', 2500);
 INSERT INTO employees (emp_id, emp_name, salary) VALUES (102, 'Jane Smith', 3500);
 
-
+```
 
 *Output:*
 
 ![image](https://github.com/user-attachments/assets/a3619f47-aea5-494d-827a-f1a35cd08fe1)
 
 *Expected Output:*
+
 - If the inserted salary in the employees table is below the condition (e.g., salary < 3000), the
 -  insert operation is blocked, and an error message is raised, such as: ERROR: Salary below minimum threshold.
 
